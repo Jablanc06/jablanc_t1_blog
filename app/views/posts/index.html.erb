@@ -1,24 +1,29 @@
 
-<div class="jumbotron">
-        <h1 class="text-center">Welcome to <b>TALKS</b>by<b>JABLANC</b></a><br><span><small>Powered by Ruby on Rails</small></span></h1>
+<div class="jumbotron ">
+	<div class="container">
+		 <h1 class="text-center display-3">Welcome to <b>TALKS</b>by<b>JABLANC</b></a><br><span><small>Powered by Ruby on Rails</small></span></h1>
+        <hr class="my-4">
 		<div class="text-center">
        		<%= link_to 'Sign In', new_user_session_path, :class => 'btn btn-info' %>
        		<%= link_to 'Join', new_user_registration_path, :class => 'btn btn-primary' %>
 
        </div>     
-      
-
-        
+	</div>       
         
 </div>
 
 	
 
 	<% @post.each do |post| %>
-		<div class="well">
-			<h3><%= post.title %></h3>
-			<p><%= post.body %></p>
-			<%= link_to 'Read More', post_path(post), :class => 'btn btn-info' %>
+		<div class="card post" style="margin-bottom: 20px;">
+			<div class="card-header">
+				<h3><%= post.title %></h3>
+			</div>
+			<div class="card-block">
+				<p class="card-text"><%= post.body %></p>
+				<%= link_to 'Read More', post_path(post), :class => 'btn btn-info' %>
+			</div>
 		</div>
+		<br>
 			
 	<% end %>
