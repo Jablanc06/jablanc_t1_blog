@@ -3,5 +3,14 @@
 	<%= @post.body %>
 </p>
 <hr>
-<%= link_to 'Edit' , edit_post_path(@post), :class => 'btn btn-primary' %>
-<%= link_to 'Delete' , post_path(@post), method: :delete, date: {confirm: 'Are You Sure?'}, :class => 'btn btn-danger' %>
+<% if user_signed_in? %>
+	<ul>
+		<%= link_to 'Edit' , edit_post_path(@post), :class => 'btn btn-primary' %>
+		<%= link_to 'Delete' , post_path(@post), method: :delete, date: {confirm: 'Are You Sure?'}, :class => 'btn btn-danger' %>
+	</ul>
+<% else %>
+	<ul>
+		<%= link_to 'Back Home' , root_path,  :class => 'btn btn-primary' %>
+		
+	</ul>
+<% end %>
